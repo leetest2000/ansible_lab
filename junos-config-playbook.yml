@@ -1,0 +1,15 @@
+---
+- name: "Load and commit configuration"
+  hosts: dc1
+  connection: local
+  gather_facts: no
+
+  tasks:
+   - name: "Load configuration from a local file and commit"
+     juniper.device.config:
+       load: "merge"
+       src: "build_conf/{{ inventory_hostname }}/junos.conf"
+     register: response
+   - name: "Print the response"
+     debug:
+       var: response

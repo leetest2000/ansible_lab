@@ -1,0 +1,9 @@
+---
+hostname: vqfx1_lawlab
+ntp_server: 55.55.55.55
+
+vlan:
+  - name: vlan102
+    vlanid: 102
+  - name: vlan103
+    vlanid: 103

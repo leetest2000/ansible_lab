@@ -1,0 +1,18 @@
+---
+- name: Gather device facts
+  connection: local
+  hosts: 66.129.234.215
+            
+  tasks:
+    - name: gather facts
+      junos_facts:         
+      register: response
+    - name: debug
+      debug: 
+        var: response
+    - name: debug more
+      debug:
+        var: ansible_net_memfree_mb
+    - name: debug even more
+      debug:
+        var: ansible_net_interfaces.me0

@@ -1,0 +1,28 @@
+---
+name: URI Example
+ hosts: all
+ connection: local
+ gather_facts: no
+ vars_files:
+  - vars_files/connection.yml
+  - vars_files/credentials.yml
+
+ tasks:
+   - name: Make Native REST call using URI to get information from PowerMax API
+     uri:
+       url: "https://{{ vQFX_host }}:36002/rpc/get-software-information"
+       validate_certs: false
+       user: "{{ user }}"
+       password: "{{ password }}"
+       headers:
+         Content-Type: "application/json"
+       method: GET
+       body_format: json
+       status_code:
+         - 200
+     register: response
+     changed_when: never
+
+   - debug:
+       var: response
+...
