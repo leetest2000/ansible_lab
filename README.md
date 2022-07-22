@@ -1,2 +1,2 @@
 # ansible_lab
-ansible junos mess around
+Working with Junos using the powers of Ansible
