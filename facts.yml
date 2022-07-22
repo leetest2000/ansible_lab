@@ -2,6 +2,7 @@
 - name: Gather device facts
   connection: local
   hosts: 66.129.234.215
+
             
   tasks:
     - name: gather facts
